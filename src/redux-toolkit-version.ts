@@ -1,5 +1,5 @@
 import {
-  combineReducers,
+  // combineReducers,
   configureStore,
   createSlice,
   getDefaultMiddleware,
@@ -72,3 +72,50 @@ const todosSlice = createSlice({
     },
   },
 });
+
+const selectedTodoSlice = createSlice({
+  name: 'selectedTodo',
+  initialState: null as string | null,
+  reducers: {
+    select: (state, { payload }: PayloadAction<{ id: string }>) => payload.id,
+  },
+});
+
+const counterSlice = createSlice({
+  name: 'counter',
+  initialState: 0,
+  reducers: {},
+  extraReducers: {
+    [todosSlice.actions.create.type]: (state) => state + 1,
+    [todosSlice.actions.edit.type]: (state) => state + 1,
+    [todosSlice.actions.toggle.type]: (state) => state + 1,
+    [todosSlice.actions.remove.type]: (state) => state + 1,
+  },
+});
+
+// const reducer = combineReducers({
+//   todos: todosSlice.reducer,
+//   selectedTodo: selectedTodoSlice.reducer,
+//   counter: counterSlice.reducer,
+// });
+// Alternate cleaner way
+const reducer = {
+  todos: todosSlice.reducer,
+  selectedTodo: selectedTodoSlice.reducer,
+  counter: counterSlice.reducer,
+};
+
+const middleware = [...getDefaultMiddleware(), logger];
+export default configureStore({
+  reducer,
+  middleware,
+});
+
+export const {
+  create: createTodoActionCreator,
+  edit: editTodoActionCreator,
+  toggle: toggleTodoActionCreator,
+  remove: deleteTodoActionCreator,
+} = todosSlice.actions;
+
+export const { select: selectTodoActionCreator } = selectedTodoSlice.actions;
