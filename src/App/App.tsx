@@ -7,14 +7,23 @@ import React, {
 } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
-// Old redux Way
-import {
-  createTodoActionCreator,
-  editTodoActionCreator,
-  toggleTodoActionCreator,
-  deleteTodoActionCreator,
-  selectTodoActionCreator,
-} from '../redux-old-version';
+// // Old redux Way
+// import {
+//   createTodoActionCreator,
+//   editTodoActionCreator,
+//   toggleTodoActionCreator,
+//   deleteTodoActionCreator,
+//   selectTodoActionCreator,
+// } from '../redux-old-version';
+
+// New redux toolkit Way
+// import {
+//   createTodoActionCreator,
+//   editTodoActionCreator,
+//   toggleTodoActionCreator,
+//   deleteTodoActionCreator,
+//   selectTodoActionCreator,
+// } from '../redux-toolkit-version';
 
 import { State } from '../type';
 import './App.css';
