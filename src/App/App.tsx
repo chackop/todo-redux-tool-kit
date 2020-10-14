@@ -17,13 +17,13 @@ import { useSelector, useDispatch } from 'react-redux';
 // } from '../redux-old-version';
 
 // New redux toolkit Way
-// import {
-//   createTodoActionCreator,
-//   editTodoActionCreator,
-//   toggleTodoActionCreator,
-//   deleteTodoActionCreator,
-//   selectTodoActionCreator,
-// } from '../redux-toolkit-version';
+import {
+  createTodoActionCreator,
+  editTodoActionCreator,
+  toggleTodoActionCreator,
+  deleteTodoActionCreator,
+  selectTodoActionCreator,
+} from '../redux-toolkit-version';
 
 import { State } from '../type';
 import './App.css';
